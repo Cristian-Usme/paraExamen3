@@ -50,12 +50,18 @@ resource "aws_instance" "examen3"{
     }
 
     user_data = <<-EOF
-                #!/bin/bash
-                # Utiliza esto para tus datos de usuario
-                yum update -y
-                yum install -y httpd
-                systemctl start httpd
-                systemctl enable httpd
-                echo "<h1>Hola Mundo desde $(hostname -f)</h1>" > /var/www/html/index.html
-                EOF
+              #!/bin/bash
+              sudo apt update
+              sudo apt install -y docker.io git
+
+              # Se clona mi repositorio
+              git clone <URL_DE_TU_REPOSITORIO> /home/ubuntu/app
+
+              # Cambia al directorio de la app y construye la imagen Docker
+              cd /home/ubuntu/app
+              sudo docker build -t servicio_telematico .
+
+              # Ejecuta el contenedor en el puerto 80
+              sudo docker run -d -p 80:80 servicio_telematico
+              EOF
 }
