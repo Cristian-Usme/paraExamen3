@@ -1,4 +1,3 @@
-GNU nano 7.2 readme.md
 
 # Servicio Telemático en AWS EC2
 
