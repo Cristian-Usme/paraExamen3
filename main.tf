@@ -55,7 +55,7 @@ resource "aws_instance" "examen3"{
               sudo apt install -y docker.io git
 
               # Se clona mi repositorio
-              git clone <URL_DE_TU_REPOSITORIO> /home/ubuntu/app
+              git clone https://github.com/Cristian-Usme/paraExamen3 /home/ubuntu/app
 
               # Cambia al directorio de la app y construye la imagen Docker
               cd /home/ubuntu/app
